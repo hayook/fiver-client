@@ -1,0 +1,30 @@
+form.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: cn;
+    width: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;  
+}
+
+form input {
+    padding: 10px;
+    width: 100%; 
+    background: black; 
+    color: #fff; 
+}
+form button {
+    padding: 10px 25px;
+    background: green; 
+    color: #fff; 
+    border: none; 
+    cursor: pointer;
+}
+form.search-form button {
+    position: absolute; 
+    top: 0; 
+    right: 0;
+}

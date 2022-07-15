@@ -1,0 +1,53 @@
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0; 
+}
+
+header nav {
+    width: 35%; 
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header nav ul .auth {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
+
+header nav ul a {
+    font-weight: bold;
+}
+
+header nav ul .auth a,
+header nav ul a.logout {
+    margin: 0 1em; 
+    background: red; 
+    padding: 5px 20px;
+    border-radius: 100px;
+}
+
+header nav ul .auth a.register {
+    background: none;
+    border: 1px solid;
+    transition: .3s; 
+}
+
+header nav ul .auth a.register:hover {
+    background: green; 
+}
+
+header nav ul .auth button {
+    background: red;
+    border: none; 
+    padding: 5px 15px; 
+    font-weight: bold;
+    color: #fff; 
+    border-radius: 20px;
+}

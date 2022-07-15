@@ -1,0 +1,21 @@
+form.auth {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    border: 1px solid #777; 
+    width: 350px;
+    padding: 20px; 
+    border-radius: 10px; 
+}
+
+form.auth label {
+    margin-bottom: 15px;
+}
+
+form.auth input {
+    margin-bottom: 25px;
+}
