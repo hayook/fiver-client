@@ -13,7 +13,8 @@ export default function AddGigForm() {
     const [technologies, setTechnologies] = useState('');
     const [notFound, setNotFound] = useState(false)
     const [isReady, setIsReady] = useState(false)
-    const { url } = useApi();
+    const { api, user } = useApi();
+    const {token} = localStorage; 
     const { gigId: id } = useParams();
 
     const fillForm = ({ title, budget, description, technologies }) => {
@@ -31,7 +32,7 @@ export default function AddGigForm() {
 
     useEffect(() => {
         if (id) {
-            fetch(url + `gig-${id}`)
+            fetch(api + `gig-${id}`)
                 .then(res => res.json())
                 .then(gig => {
                     setIsReady(true); 
@@ -45,28 +46,32 @@ export default function AddGigForm() {
         } else {
             setIsReady(true)
         }
-    }, [id, url])
+    }, [id, api])
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        let gig = { title, budget, description, technologies, userId: 1 };
+        let gig = { title, budget, description, technologies };
         let method = 'POST';
         if (id) {
             gig = { ...gig, id };
             method = 'PUT';
         }
         const config = { gig, method }
-        console.log(`Send a ${config.method} Request To ${url} with `)
-        console.log(gig)
-        await fetch(url, {
+        const response = await fetch(api, {
             method: config.method,
             headers: {
+                'authorization': `Bearer ${token}`,
                 'Content-type': 'application/json'
             },
             body: JSON.stringify(config.gig),
         });
-        clearForm();
+        if(response.status === 200) {
+            clearForm();
+        } else {
+            const data = await response.json()
+            console.log(data.message)
+        }
     }
 
     return (

@@ -6,12 +6,13 @@ export const useApi = () => useContext(apiContext)
 export default function ApiContextProvider(props) {
     const [gigs, setGigs] = useState([]);
     const [isReady, setIsReady] = useState(false);
-    const url = 'http://localhost:5000/api/gigs/'
+    const server = 'http://localhost:5000'
+    const api = server + '/api/gigs'
     const [user, setUser] = useState(null) 
     // based on JWT i will know the user
 
     const values = {
-        url,
+        api,
         gigs, setGigs,
         isReady, setIsReady,
         user, setUser,

@@ -2,8 +2,12 @@ import { Link } from 'react-router-dom';
 import {useApi} from '../context/api'; 
 
 export default function NavBar() {
+    const {user, setUser} = useApi()
 
-    const {user} = useApi();
+    const handlelogout = () => {
+        localStorage.removeItem('token'); 
+        setUser(null)
+    }
 
     return (
         <nav>
@@ -12,9 +16,9 @@ export default function NavBar() {
                 {user ? (
                     <>
                         <Link to="/add-gig">Add Gig</Link>
-                        <Link to="/:userId/gigs">My Gigs</Link>
-                        <Link to="/user-id">{user.username || 'Username'}</Link>
-                        <button>Logout</button>
+                        <Link to={`/user=${user.id}/gigs`}>My Gigs</Link>
+                        <Link to={`/user=${user.id}/profile`}>{user.username}</Link>
+                        <button className='logout' onClick={handlelogout}>Logout</button>
                     </>
                 ) : (
                     <div className="auth">

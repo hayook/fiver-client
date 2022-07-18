@@ -1,14 +1,22 @@
 import { useNavigate } from 'react-router-dom';
-import {useApi} from '../context/api'; 
+import { useApi } from '../context/api';
 
 export default function Gig({ props }) {
-    const {url, gigs, setGigs} = useApi(); 
-    const { id, title, description, budget, technologies } = props;
+    const { api, gigs, setGigs, user } = useApi();
+    const { id, title, description, budget, technologies, userId } = props;
     const navigate = useNavigate();
+    const {token} = localStorage;
 
     const handleDelete = async () => {
-        await fetch(url + `gig-${id}`, {method: 'DELETE'});
-        setGigs(gigs.filter(gig => gig.id !== id));  
+        const response = await fetch(`${api}/gig-${id}`, { 
+            method: 'DELETE',
+            headers: {'authorization': `Bearer ${token}`} 
+        });
+        if(response.status === 200) {
+            setGigs(gigs.filter(gig => gig.id !== id));
+        } else {
+            console.log('You Dont have the access to remove this gig'); 
+        }
     }
 
     const handleEdit = () => {
@@ -22,10 +30,14 @@ export default function Gig({ props }) {
             <div className="technologies">
                 {technologies.map((tech, id) => <p key={id} className="tech">{tech.trim()}</p>)}
             </div>
-            <div className="functionalities">
-                <button onClick={handleDelete} className='delete-gig'>Delete</button>
-                <button onClick={handleEdit} className='edit-gig'>Edit</button>
-            </div>
+            {
+                (user && (user.id == userId)) 
+                &&
+                <div className="functionalities">
+                    <button onClick={handleDelete} className='delete-gig'>Delete</button>
+                    <button onClick={handleEdit} className='edit-gig'>Edit</button>
+                </div>
+            }
         </div>
     )
 }

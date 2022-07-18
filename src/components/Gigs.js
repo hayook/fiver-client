@@ -6,19 +6,22 @@ import Gig from './Gig'
 import Loading from './Loading'
 import NoResults from './No-Results';
 import Search from './Search';
-import {useLocation} from 'react-router-dom'
+import {useLocation, useParams} from 'react-router-dom'
 
 export default function Gigs({ searchQuery }) {
-    const { url, gigs, setGigs, isReady, setIsReady } = useApi();
-    let reqUrl = url; 
+    const { api, gigs, setGigs, isReady, setIsReady } = useApi();
+    let reqUrl = api; 
     const location = useLocation();
+    const {id} = useParams();
+
     useEffect(() => {
-        if(searchQuery) reqUrl = `${url}search?q=${searchQuery}` 
+        if(searchQuery) reqUrl = `${api}/search?q=${searchQuery}` 
         setIsReady(false)
         fetch(reqUrl)
             .then(res => res.json())
             .then(data => {
-                setGigs(data)
+                setGigs(data);
+                if(id) setGigs(data.filter(gig => gig.userId === Number(id)))
                 setIsReady(true)
             })
             .catch(() => console.log('Error'));
@@ -37,6 +40,7 @@ export default function Gigs({ searchQuery }) {
                             <div className="container">
                                 <div className='search-box'>
                                     <Search />
+                                    
                                 </div>
                                 <div className="gigs-list">
                                     {gigs.map(gig => {
