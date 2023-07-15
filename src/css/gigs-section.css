@@ -1,75 +1,80 @@
 section.gigs {
-    padding: 100px 0;  
+    padding: 100px 0;
 }
+
 .search-box {
-    padding: 50px 0; 
-    display: flex; 
+    padding: 50px 0;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .search-box form {
-    position: static !important; 
+    position: static !important;
     transform: translate(0, 0) !important;
 }
+
 .filter-bar {
-    margin: 50px 0; 
+    margin: 50px 0;
 }
+
 .gigs-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px; 
+    gap: 30px;
 }
 
 .gigs-list .gig {
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    padding: 25px; 
+    justify-content: center;
+    padding: 25px;
     border: 1px solid #777;
     border-radius: 10px;
 }
 
 .gigs-list .gig p.description {
-    margin: 20px 0; 
-    color: #777; 
+    margin: 20px 0;
+    color: #777;
 }
 
 .gigs-list .gig p.budget {
     margin-bottom: 20px;
 }
 
-.gigs-list .gig .technologies { 
-    display: flex; 
+.gigs-list .gig .technologies {
+    display: flex;
     align-items: center;
-    gap: 5px; 
+    gap: 5px;
+    flex-wrap: wrap;
 }
 
 .gigs-list .gig .technologies p {
-    padding: 5px 10px; 
+    padding: 5px 10px;
     background: #363636;
-    border-radius: 4px; 
+    border-radius: 4px;
     font-size: .8rem;
 }
 
 .gigs-list .gig .functionalities {
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     margin-top: 20px;
-    gap: 0 5px; 
+    gap: 0 5px;
 }
+
 .gigs-list .gig .functionalities button.delete-gig,
 .gigs-list .gig .functionalities button.edit-gig {
-    background: red; 
-    width: 100%; 
-    padding: 5px 0;  
-    color: #fff;  
-    font-weight: bold; 
+    background: red;
+    width: 100%;
+    padding: 5px 0;
+    color: #fff;
+    font-weight: bold;
     border: none;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .gigs-list .gig .functionalities button.edit-gig {
-    background: green; 
+    background: green;
 }

@@ -8,11 +8,11 @@ export default function ApiContextProvider(props) {
     const [isReady, setIsReady] = useState(false);
     const server = 'http://localhost:5000'
     const api = server + '/api/gigs'
-    const [user, setUser] = useState(null) 
+    const [user, setUser] = useState(null)
     // based on JWT i will know the user
 
     const values = {
-        api,
+        api, server,
         gigs, setGigs,
         isReady, setIsReady,
         user, setUser,

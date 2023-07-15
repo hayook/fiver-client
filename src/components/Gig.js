@@ -5,17 +5,17 @@ export default function Gig({ props }) {
     const { api, gigs, setGigs, user } = useApi();
     const { id, title, description, budget, technologies, userId } = props;
     const navigate = useNavigate();
-    const {token} = localStorage;
+    const { token } = localStorage;
 
     const handleDelete = async () => {
-        const response = await fetch(`${api}/gig-${id}`, { 
+        const response = await fetch(`${api}/gig-${id}`, {
             method: 'DELETE',
-            headers: {'authorization': `Bearer ${token}`} 
+            headers: { 'authorization': `Bearer ${token}` }
         });
-        if(response.status === 200) {
+        if (response.status === 200) {
             setGigs(gigs.filter(gig => gig.id !== id));
         } else {
-            console.log('You Dont have the access to remove this gig'); 
+            console.log('You Dont have the access to remove this gig');
         }
     }
 
@@ -28,10 +28,10 @@ export default function Gig({ props }) {
             <p className="description">{description.substring(0, 100)}...</p>
             <p className='budget'>{budget}$</p>
             <div className="technologies">
-                {technologies.map((tech, id) => <p key={id} className="tech">{tech.trim()}</p>)}
+                {technologies.length > 0 && technologies.map((tech, id) => <p key={id} className="tech">{tech.trim()}</p>)}
             </div>
             {
-                (user && (user.id == userId)) 
+                (user && (user.id == userId))
                 &&
                 <div className="functionalities">
                     <button onClick={handleDelete} className='delete-gig'>Delete</button>
