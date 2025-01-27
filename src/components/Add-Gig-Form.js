@@ -86,23 +86,23 @@ export default function AddGigForm() {
                         <section className='add-gig-form'>
                             <div className='container'>
                                 <form className='add-gig-form' onSubmit={handleSubmit}>
-                                    <label htmlFor="title">Gig Title</label>
-                                    <input type="text" name='title' placeholder='Enter Gig Title' autoComplete='off'
+                                    <label htmlFor="title">Offer title</label>
+                                    <input type="text" name='title' placeholder='Enter offer title' autoComplete='off'
                                         value={title}
                                         onChange={(e) => setTitle(e.target.value)}
                                     />
-                                    <label htmlFor="title">Gig Budget ($)</label>
-                                    <input type="number" name='budget' placeholder='Enter Gig Budget' autoComplete='off'
+                                    <label htmlFor="title">Offer budget ($)</label>
+                                    <input type="number" name='budget' placeholder='Enter offer budget' autoComplete='off'
                                         value={budget}
                                         onChange={(e) => setBudget(e.target.value)}
                                     />
-                                    <label htmlFor="title">Gig Description</label>
-                                    <textarea name='description' placeholder='Enter Gig Description'
+                                    <label htmlFor="title">Offer description</label>
+                                    <textarea name='description' placeholder='Enter offer description'
                                         value={description}
                                         onChange={(e) => setDescription(e.target.value)}
                                     />
-                                    <label htmlFor="title">Gig Technologies</label>
-                                    <input type="text" name='technologies' placeholder='Enter Gig Technologies' autoComplete='off'
+                                    <label htmlFor="title">Offer technologies</label>
+                                    <input type="text" name='technologies' placeholder='Enter offer technologies' autoComplete='off'
                                         value={technologies}
                                         onChange={(e) => setTechnologies(e.target.value)}
                                     />

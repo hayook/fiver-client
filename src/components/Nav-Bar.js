@@ -12,11 +12,11 @@ export default function NavBar() {
     return (
         <nav>
             <ul>
-                <Link to="/all-gigs">All Gigs</Link>
+                <Link to="/all-offers">All offers</Link>
                 {user ? (
                     <>
-                        <Link to="/add-gig">Add Gig</Link>
-                        <Link to={`/user=${user.id}/gigs`}>My Gigs</Link>
+                        <Link to="/add-offer">Add offer</Link>
+                        <Link to={`/user=${user.id}/offers`}>My offers</Link>
                         <Link to={`/user=${user.id}/profile`}>{user.username}</Link>
                         <button className='logout' onClick={handlelogout}>Logout</button>
                     </>

@@ -47,11 +47,11 @@ export default function App() {
                     <Header />
                     <Routes>
                         <Route path='/' element={<Search />} />
-                        <Route path='/all-gigs' element={<Gigs />} />
+                        <Route path='/all-offers' element={<Gigs />} />
                         <Route path='/search' element={searchQuery ? <Gigs searchQuery={searchQuery} /> : <NoResults />} />
-                        <Route path='/add-gig' element={<AddGigForm />} />
-                        <Route path='/edit-gig-:gigId' element={<AddGigForm />} />
-                        <Route path='/user=:id/gigs' element={<Gigs />} />
+                        <Route path='/add-offer' element={<AddGigForm />} />
+                        <Route path='/edit-offer-:gigId' element={<AddGigForm />} />
+                        <Route path='/user=:id/offers' element={<Gigs />} />
                         <Route path='/user=:id/profile' element={<Profile />} />
                         <Route path='/login' element={<Login />} />
                         <Route path='/register' element={<Register />} />

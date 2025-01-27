@@ -20,7 +20,7 @@ export default function Gig({ props }) {
     }
 
     const handleEdit = () => {
-        navigate(`/edit-gig-${id}`);
+        navigate(`/edit-offer-${id}`);
     }
     return (
         <div className='gig'>
