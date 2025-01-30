@@ -26,7 +26,7 @@ export default function Gig({ props }) {
         <div className='gig'>
             <h3>{title}</h3>
             <p className="description">{description.substring(0, 100)}...</p>
-            <p className='budget'>{budget}$</p>
+            <p className='budget'>${budget}</p>
             <div className="technologies">
                 {technologies.length > 0 && technologies.map((tech, id) => <p key={id} className="tech">{tech.trim()}</p>)}
             </div>

@@ -17,7 +17,7 @@ export default function NavBar() {
                     <>
                         <Link to="/add-offer">Add offer</Link>
                         <Link to={`/user=${user.id}/offers`}>My offers</Link>
-                        <Link to={`/user=${user.id}/profile`}>{user.username}</Link>
+                        <Link to={`/user=${user.id}/profile`}>@{user.username}</Link>
                         <button className='logout' onClick={handlelogout}>Logout</button>
                     </>
                 ) : (
